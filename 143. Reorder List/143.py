@@ -23,10 +23,14 @@ class Solution:
         current_node, last_node = mid, None
         
         while current_node:
-            # 作用过程
-            next_node, current_node.next = current_node.next, last_node
-            # 传递过程
-            last_node, current_node = current_node, next_node           
+            # python简便编法
+            current_node.next, current_node, last_node =  last_node, current_node.next, current_node
+            
+            # # 传统编法
+            # # 作用过程
+            # next_node, current_node.next = current_node.next, last_node
+            # # 传递过程
+            # last_node, current_node = current_node, next_node           
             
             
         # 3. 按照规定的顺序插入，得到最后结果，肯定需要两个指针，现在已经反向了
@@ -35,16 +39,17 @@ class Solution:
         
         while temp2.next:          
         
-            # python简便编法
-            # temp1.next, temp1 = temp2, temp1.next
-            # temp2.next, temp2 = temp1, temp2.next
-            # 传统编法
-            p1 = temp1.next
-            temp1.next = temp2
-            p2 = temp2.next
-            temp1 = p1
-            temp2.next = temp1
-            temp2 = p2
+            # python简便编法(可以不使用中间变量)
+            temp1.next, temp1 = temp2, temp1.next
+            temp2.next, temp2 = temp1, temp2.next
+            
+            # # 传统编法
+            # p1 = temp1.next
+            # temp1.next = temp2
+            # p2 = temp2.next
+            # temp1 = p1
+            # temp2.next = temp1
+            # temp2 = p2
      
         return
     
