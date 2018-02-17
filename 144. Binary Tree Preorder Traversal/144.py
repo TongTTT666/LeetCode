@@ -31,3 +31,26 @@ class Solution:
             root = stack.pop()
             # 最后右孩子，指向右孩子还是先读取值再左孩子
             root = root.right     
+
+
+# 法3：从后序遍历那里借鉴过来的
+# 先入栈的节点值后得到，先让right子树入栈必然先得到left的值，这是符合顺序的，本题入栈顺序 右->左  得到值的顺序 根->左->右 
+class Solution:
+    def preorderTraversal(self, root):
+        if not root:
+            return []
+        
+        res, stack = [], []
+        stack.append(root)
+        
+        
+        while stack:
+            node = stack.pop()
+            res.append(node.val)
+            if node.right:
+                stack.append(node.right)
+            if node.left:
+                stack.append(node.left)
+            
+                
+        return res
