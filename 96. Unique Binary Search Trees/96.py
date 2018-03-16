@@ -16,10 +16,10 @@ class Solution(object):
         
         # Define two functions: 
         # dp[i]: the number of unique BST for a sequence of length n
-        # F[i][n]: the number of unique for a sequence of length n where number i is the root of BST 
+        # F[i][n]: the number of unique BST for a sequence of length n where number i is the root of BST 
         # We can find a connection between dp and F, dp[n] = F[1][n] + F[2][n] + ... + F[n][n], that is trivial
         # For anyone of F[i][n], we have F[i][n] = dp[i-1] * dp[n-i] since we can divide these numbers
-        # into two subsequence  [1,2,...i-1], [i+1,...,n] and use them to establish two sub BSF
+        # into two subsequence  [1,2,...i-1], [i+1,...,n] and use them to establish two sub-BSFs
         # => actually there are dp[i-1]*dp[n-i] ways to make it => recursion problem
         # Thus, dp[n] = dp[0]*dp[n-1] + dp[1]*dp[n-2] + ... dp[n-1]*dp[0]
         # Initializaion: dp[0] = 1 and dp[1] = 1 => trivial
