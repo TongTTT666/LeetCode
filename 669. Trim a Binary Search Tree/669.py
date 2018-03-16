@@ -5,7 +5,6 @@
 #         self.left = None
 #         self.right = None
 
-
 class Solution:
     def trimBST(self, root, L, R):
         """
@@ -19,18 +18,19 @@ class Solution:
         # bottom situation
         if not root:
             return
-
-        # If the node's val is less than L, all its left children are not satisfy the condition
+        
+        # If the node's val is less than L, all its left children are not satisfy the condition 
         if root.val < L:
             # trim all left nodes
             return self.trimBST(root.right, L, R)
         # If the node's val is more than R, all its right children are not satisfy the condition
-        if root.val > R:
+        elif root.val > R:
             # trim all right nodes
             return self.trimBST(root.left, L, R)
-
-        # If the root node satisfy the condition, we shoule construct the BSF
-        root.left = self.trimBST(root.left, L, R)
-        root.right = self.trimBST(root.right, L, R)
-
+        else:
+            # If the root node satisfy the condition, we shoule construct the BSF
+            root.left = self.trimBST(root.left, L, R)
+            root.right = self.trimBST(root.right, L, R)
+        
         return root
+        
