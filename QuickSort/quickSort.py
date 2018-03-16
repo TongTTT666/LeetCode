@@ -15,10 +15,8 @@ def Sort(array):
     # 大的放一边，小的放一边
     for i in range(len(array)):
         if array[i] < array[index]:
-            print('here1')
             p1.append(array[i])
         else: 
-            print('here2')
             p2.append(array[i])
     
     # 放完继续排呗！
