@@ -28,7 +28,7 @@ class Solution:
         :rtype: int
         """
         # DP algorithm
-        # dp[i][j]: the maximum length of an subarray that appears in A[i:] and B[j:].
+        # dp[i][j]: the maximum length of an subarray that appears in A[:i] and B[:j].
         # we can find that dp[i][j] = dp[i-1][j-1] + 1 if A[i-1] == B[j-1]
         
         dp = [[0] * (len(B)+1) for x in range(len(A)+1)]
