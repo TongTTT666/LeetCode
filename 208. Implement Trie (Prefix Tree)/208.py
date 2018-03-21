@@ -1,7 +1,7 @@
 class TrieNode:   # 把节点类要构建好
     def __init__(self):
         self.isword = False   # 判断这个节点是否代表一个终止
-        self.child = {}  # 用字典去写儿子节点，因为可能会有很多歌子节点
+        self.child = {}  # 用字典去写儿子节点，因为可能会有很多儿子节点
 
 
 class Trie:
